@@ -7,7 +7,7 @@ async def profile(update, context):
     await update.message.reply_text("پروفایل مدیر")
 
 def main():
-    app = ApplicationBuilder().token("71031452").build()
+    app = ApplicationBuilder().token("8784120583:AAGzTDjx0aH-wEnNoinjCP8Ooklf_i3l3Ys").build()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("profile", profile))

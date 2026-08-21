@@ -10,7 +10,7 @@ async def profile(update, context):
     await update.message.reply_text("پروفایل مدیر")
 
 def run_bot():
-    app = ApplicationBuilder().token("8784120583:AAGzTDjx0aH-wEnNoinjCP8Ooklf_i3l3Ys").build()
+    app = ApplicationBuilder().token("8784120583:AAGth15jH8F0WtYGShMEzycBStpGXXdeFVs").build()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("profile", profile))

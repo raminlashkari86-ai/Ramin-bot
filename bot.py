@@ -1,7 +1,7 @@
 from telegram.ext import ApplicationBuilder, CommandHandler
 
 async def start(update, context):
-    await update.message.reply_text("سلام رامین، ربات روشنه!")
+    await update.message.reply_text("سلام رامین ربات روشنه")
 
 async def profile(update, context):
     await update.message.reply_text("پروفایل مدیر")

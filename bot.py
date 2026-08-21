@@ -1,27 +1,18 @@
-from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
-
-TOKEN = "8784120583:AAGzTDjx0aH-wEnNoinjCP8Ooklf_i3l3Ys"
-ADMIN_ID = 71031452
+from telegram.ext import ApplicationBuilder, CommandHandler
 
 async def start(update, context):
-    await update.message.reply_text("سلام! پیامت رو به رامین بگو.")
+    await update.message.reply_text("سلام رامین اینجا هستم!")
 
-async def forward_to_admin(update, context):
-    user = update.message.from_user
-    text = update.message.text
+async def profile(update, context):
+    await update.message.reply_text("پروفایل مدیر")
 
-    # ارسال پیام کاربر برای تو
-    await context.bot.send_message(
-        chat_id=ADMIN_ID,
-        text=f"پیام از {user.first_name}:\n{text}"
-    )
+def main():
+    app = ApplicationBuilder().token("71031452").build()
 
-    # جواب به کاربر
-    await update.message.reply_text("پیامت برای رامین ارسال شد.")
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("profile", profile))
 
-app = ApplicationBuilder().token(TOKEN).build()
+    app.run_polling()
 
-app.add_handler(CommandHandler("start", start))
-app.add_handler(MessageHandler(filters.TEXT, forward_to_admin))
-
-app.run_polling()
+if __name__ == "__main__":
+    main()

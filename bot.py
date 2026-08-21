@@ -1,6 +1,7 @@
 from telegram.ext import ApplicationBuilder, CommandHandler
 from flask import Flask
 import threading
+import os
 
 # --- Telegram Bot ---
 async def start(update, context):
@@ -25,10 +26,10 @@ def home():
     return "Bot is running!"
 
 def run_web():
-    web_app.run(host="0.0.0.0", port=10000)
+    port = int(os.environ.get("PORT", 5000))
+    web_app.run(host="0.0.0.0", port=port)
 
 # --- Start both bot + web server ---
 if __name__ == "__main__":
     threading.Thread(target=run_bot).start()
     run_web()
-
